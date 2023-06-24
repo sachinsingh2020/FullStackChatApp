@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage/HomePage';
+import ChatPage from './components/ChatPage/ChatPage';
+import './App.css'
+
+const fileUploadCss = {
+  cursor: 'pointer',
+  border: 'none',
+  height: '100%',
+  backgroundColor: 'white',
+  fontWeight: '500',
+  textAlign: 'center',
+  width: '60%',
+};
+
+export const fileUploadStyle = {
+  '&::file-selector-button': fileUploadCss,
+
+};
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <Routes>
+          <Route exact path='/' element={<HomePage />} />
+          <Route exaxt path='/chat' element={<ChatPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
