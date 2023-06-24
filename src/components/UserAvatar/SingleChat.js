@@ -12,7 +12,7 @@ import io from "socket.io-client";
 import { fetchChatsFunction } from '../../redux/actions/chat';
 
 
-const EndPoint = "http://localhost:4000";
+const EndPoint = "https://full-stack-chat-app-backend.vercel.app/";
 let socket, selectedChatCompare;
 
 const SingleChat = () => {

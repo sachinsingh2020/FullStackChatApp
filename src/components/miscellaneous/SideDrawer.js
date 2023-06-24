@@ -1,4 +1,4 @@
-import { Box, Button, Tooltip, Text, Menu, MenuButton, MenuList, Avatar, MenuItem, MenuDivider, useDisclosure, useToast } from '@chakra-ui/react';
+import { Box, Button, Tooltip, Text, Menu, MenuButton, MenuList, Avatar, MenuItem, MenuDivider, useDisclosure, useToast, Badge } from '@chakra-ui/react';
 import { Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Input } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import { FaSearch, FaBell, FaChevronDown } from "react-icons/fa";
@@ -11,7 +11,6 @@ import ChatLoading from '../Others/ChatLoading';
 import UserListItem from '../UserAvatar/UserListItem';
 import { Spinner } from "@chakra-ui/spinner";
 import NonRepeat from '../UserAvatar/NonRepeat';
-import NotificationBadge from 'react-notification-badge';
 
 
 const SideDrawer = () => {
@@ -118,9 +117,14 @@ const SideDrawer = () => {
                 </Text>
                 <div style={{ display: "flex" }}>
                     <Menu>
-                        <MenuButton p={1}  >
-                            <NotificationBadge count={notification.length} effect={["scale"]} />
-                            <FaBell fontSize={'20px'} />
+                        <MenuButton p={1} display={'flex'}    >
+                            <Badge ml="1" color={
+                                notification.length && notification.length > 0 ? "darkred" : "black"
+                            }  >
+                                {notification.length}
+                                <FaBell fontSize={'20px'} />
+                            </Badge>
+                            {/* <Badge count={notification.length} effect={["scale"]} /> */}
                         </MenuButton>
                         <MenuList pl={2}>
                             {
